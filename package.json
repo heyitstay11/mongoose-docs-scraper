@@ -1,0 +1,23 @@
+{
+  "name": "Puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "doc": "jsdoc index.js scoop.js README.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "pdf-merger-js": "^3.2.1",
+    "puppeteer": "^12.0.1"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.7"
+  }
+}
