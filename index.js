@@ -89,7 +89,8 @@ const mergePDF = async (list) => {
 
 /**
  * @function
- * @name main main function of whole script
+ * @name main 
+ * @description main function of script
  */
 (async () => {
     const browser = await puppeteer.launch({ headless: true });

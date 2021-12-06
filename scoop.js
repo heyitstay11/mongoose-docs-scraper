@@ -1,22 +1,17 @@
 /**
  * @module scoop
- * @requires cheerio 
- * @requires axios
+ * @requires puppeteer 
  * 
  * @author Tayyab
  * @version 0.0.1
  * @description Returns the function to get the URL list
  */
 
-/**
- * @constant {Object} cheerio library for scraping web pages
- */
-const cheerio = require('cheerio');
 
 /**
- * @constant {Object} axios library to make http requests
+ * @constant {Object} puppeteer library for web scraping and automation
  */
-const axios = require('axios');
+const puppeteer = require('puppeteer');
 
 /**
  * @const {string} BASE_URL base url of mongoose site
@@ -31,36 +26,29 @@ const URL = `${BASE_URL}/docs/guide.html`;
 
 /**
  * @description async function to get scraped data
- * @returns {Array.<string>} list of urls in docs 
+ * @returns {Promise} list of urls in docs 
  */
 const scoop = async () => {
-    /**
-     * @type {Array.<string>} 
-     */
-    const urls = [];
+    // Craete a browser
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    // Navigate to URL
+    await page.goto(URL, {waitUntil: 'load', timeout: 0});
+
     try {
-        /**
-         * @type {string} 
-         */
-        const { data } = await axios.get(URL);
-        
-        //loaded doc returned from cheerio that can be queried
-        const $ = cheerio.load(data);
-
-        // Scraping the elements with class - .pure-menu-item.sub-item
-        $('.pure-menu-item.sub-item')
-        .each(function(){
-           // getting url from the anchor tag inside
-           const url = $(this).find('a').attr('href');
-
-           // adding the url to the urls list
-           urls.push(BASE_URL + url);
+        // Scrape the URLs from the page
+        let urls = await page.$$eval('.pure-menu-item.sub-item > a', links => {
+           return links.map((link) => link.href);
         });
+        await page.close();
+        await browser.close();
+        return urls;
     } catch (error) {
-       console.log(error);
-       return [];
-    }  
-    return urls;
+        await page.close();
+        await browser.close();
+        console.log(error);
+        return []
+    }
 }
 
 module.exports = scoop;

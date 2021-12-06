@@ -1,4 +1,6 @@
 node_modules
 PDF
 out
+*.pdf
+old.js
 mongoose-docs-full.pdf

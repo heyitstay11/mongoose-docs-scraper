@@ -1,32 +1,31 @@
-# Mongoose Docs Scraper + PDF Maker
+# Mongoose Docs PDF 
 
 Uses
 - Puppeteer
-- Cheerio
+- <strike>Cheerio</strike>
 - PDFMerger
 
-Scrapes the mongoose docs page to get urls
+## Node Program to create pdf of mongoose documentation
+
 </br>
-Make PDFs of the docs page and merges all pdf generated
+How ? </br>
+Scrapes the mongoose docs page to get urls </br>
+Make PDFs of the docs page using puppeteer and merges all pdf generated using PDFMerger</br>
+</br>
 
-----
-
-
-Docs: https://mongoose-scrapdf-docs.netlify.app/
-
+PDF files are named according to page titles in Docs </br>
+Code Docs: https://mongoose-scrapdf-docs.netlify.app </br>
+Mongoose Site: https://mongoosejs.com/docs/api.html
 
 ## Installation
-Pupeteer will install a chromium binary if you have'nt set environment variable
+Pupeteer will install a chromium binary if you have'nt set environment variable</br>
+Check [npm Puppeteer](https://www.npmjs.com/package/puppeteer)</br>
 ```bash
-
     npm install
-
 ```
 
 ## Start
-will create the pdfs in the root folder
+will create the pdfs in the root directory</br>
 ```bash
-
     npm run dev
-
 ```
