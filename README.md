@@ -4,7 +4,7 @@ Download files directly
 - [PDF](./PDF/)
 - [EPUB](./EPUB/)
 
-Files are not merges because they were breaking internal links
+Files are not merged because it was breaking internal links
 
 ----
 
