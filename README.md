@@ -1,8 +1,17 @@
 # Mongoose Docs PDF and EPUB
 
+Download files directly
+- [PDF](./PDF/)
+- [EPUB](./EPUB/)
+
+Files are not merges because they were breaking internal links
+
+----
+
 Uses
 - Puppeteer
-- Node Ebook Converter                               
+- Node Ebook Converter
+
 ## Node Program to create pdfs and epub of mongoose documentation
 </br>
 How ? </br>
@@ -44,3 +53,4 @@ after running the command open index.html file located inside the out directory 
     npm run doc
 ```
 
+[Twitter](https://twitter.com/hey_its_tay11)
