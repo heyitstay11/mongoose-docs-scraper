@@ -1,5 +1,5 @@
 /**
- * @module index
+ * @module pdf
  * @requires puppeteer
  * @requires scoop
  * 
@@ -39,6 +39,8 @@ const pdfName = (link) => {
  */
 const makePDFs = async (browser, list) => {
     const pdfList = [];
+    const fs = require('fs');
+    fs.mkdirSync('./PDF');
     for(i = 0; i < list.length; i++){
         try {
             const page = await browser.newPage();
@@ -46,8 +48,8 @@ const makePDFs = async (browser, list) => {
 
             await page.setDefaultNavigationTimeout(0);
             await page.goto(list[i], {waitUntil:'load'});
-            await page.pdf({path: fileName, printBackground: true, format: 'A4'});
-            
+            await page.pdf({path: './PDF/'+fileName, printBackground: true, format: 'A4'});
+            console.log(fileName, ' created');
             pdfList.push(fileName);
             await page.close();
         } catch (error) {

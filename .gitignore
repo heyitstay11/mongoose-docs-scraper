@@ -1,6 +1,7 @@
 node_modules
-PDF
+*PDF
+*EPUB
 out
+*.epub
 *.pdf
-old.js
-mongoose-docs-full.pdf
+*old.js
