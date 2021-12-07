@@ -2,15 +2,13 @@
 
 Uses
 - Puppeteer
-- <strike>Cheerio</strike>
-- PDFMerger
 
 ## Node Program to create pdf of mongoose documentation
 
 </br>
 How ? </br>
 Scrapes the mongoose docs page to get urls </br>
-Make PDFs of the docs page using puppeteer and merges all pdf generated using PDFMerger</br>
+Make PDFs of the docs page using puppeteer</br>
 </br>
 
 PDF files are named according to page titles in Docs </br>

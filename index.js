@@ -1,11 +1,10 @@
 /**
  * @module index
  * @requires puppeteer
- * @requires pdf-merger-js
  * @requires scoop
  * 
  * @author Tayyab
- * @version 0.0.1
+ * @version 0.1.0
  */
 
 /**
@@ -14,22 +13,11 @@
 const puppeteer = require('puppeteer');
 
 /**
- * @constructor PDFMerger Class 
- */
-const PDFMerger = require('pdf-merger-js');
-
-/**
  * @function
  * @name urlList
  * @returns {Promise} list of urls 
  */
 const urlList = require('./scoop');
-
-/**
- * @constant {PDFMerger} merger instance of PDFMerger class
- */
-const merger = new PDFMerger();
-
 
 /**
  * 
@@ -71,23 +59,6 @@ const makePDFs = async (browser, list) => {
 
 
 /**
- * 
- * @param {Array.<string>} list names for pdf files
- */
-const mergePDF = async (list) => {
-    for(i = 0; i < list.length; i++){
-        merger.add(list[i]);
-    }
-
-    try{    
-        await merger.save('full.pdf');
-    }catch (error){
-        console.log("merge Failed", error);
-    }
-    
-}
-
-/**
  * @function
  * @name main 
  * @description main function of script
@@ -96,6 +67,5 @@ const mergePDF = async (list) => {
     const browser = await puppeteer.launch({ headless: true });
     const list = await urlList();
     const pdfList = await makePDFs(browser, list);
-    await mergePDF(pdfList);
     await browser.close();
 })();
