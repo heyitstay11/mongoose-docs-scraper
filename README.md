@@ -7,12 +7,13 @@ Download files directly
 Files are not merged because it was breaking internal links
 
 ----
+## Node Program to create pdfs and epub of mongoose documentation
 
 Uses
 - Puppeteer
 - Node Ebook Converter
+- Calibre
 
-## Node Program to create pdfs and epub of mongoose documentation
 </br>
 How ? </br>
 Scrapes the mongoose docs page to get urls </br>
